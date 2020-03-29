@@ -11,7 +11,7 @@ import java.util.StringJoiner;
  *
  * 代码以最小堆为例, 堆顶是最小的值
  */
-public class HEAP {
+public class Heap {
 
   public static void main(String[] strings) {
     int arr[] = {10,2,3,4,5,6,7,8,9};
