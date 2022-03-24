@@ -15,11 +15,13 @@ public class TwoSplitSolution {
 
     private static int[] arr = {-1,0,3,5,9,12};
 
-    private static int target = 3;
+    private static int target = 2;
 
 
     public static void main(String[] args) {
-        System.out.println(search(arr, target, 0, arr.length - 1));;
+        System.out.println(search(arr, target, 0, arr.length - 1));
+
+        System.out.println(loopSearch(arr, target));
     }
 
     /**
@@ -38,6 +40,7 @@ public class TwoSplitSolution {
             return index;
         }
 
+        // 如果 left == right 的情况， index = left = right， 所以这里如果left = right也要直接退出
         if (left >= right) {
             return -1;
         }
@@ -57,30 +60,31 @@ public class TwoSplitSolution {
     /**
      * 循环查询
      */
-    private static int loopSearch(int[] arr, int target, int left, int right) {
+    private static int loopSearch(int[] arr, int target) {
+        int left = 0;
+        int right = arr.length - 1; // 左闭右闭
 
-        // 查询中间位置的坐标
-        int index = (left + right) / 2;
+        // 注意是否包含等于
+        // 先判断循环条件，再计算index， 就包含等于
 
-        if (arr[index] == target) {
-            return index;
+        while (left <= right) {
+            int index = (left + right) / 2;
+
+            if (arr[index] == target) {
+                return index;
+            }
+
+            // 向左找
+            if (arr[index] > target) {
+                right = index - 1;
+                continue;
+            }
+
+            // 向右找
+            left = index + 1;
         }
-
-        if (left >= right) {
-            return -1;
-        }
-
-        // 二分查找, 1. 比较大小
-
-        // 向左找
-        if (arr[index] > target) {
-            return search(arr, target, left, index - 1);
-        }
-
-        // 向右找
-        return search(arr, target, index + 1, right);
+        return -1;
     }
-
 
 
 }
