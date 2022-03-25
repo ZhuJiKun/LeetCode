@@ -1,4 +1,4 @@
-package com.leet.array;
+package com.leet.array.二分查找;
 
 /**
  * 二分查找
