@@ -7,3 +7,5 @@
 
 Trie树： 它的Key都为字符串，能做到高效查询和插入，时间复杂度为O(k)，k为字符串长度，缺点是如果大量字符串没有共同前缀时很耗内存。
         它的核心思想就是通过最大限度地减少无谓的字符串比较，使得查询高效率，即「用空间换时间」，再利用共同前缀来提高查询效率。
+
+https://doocs.github.io/advanced-java/#/./docs/distributed-system/dubbo-serialization-protocol?id=dubbo-%e6%94%af%e6%8c%81%e4%b8%8d%e5%90%8c%e7%9a%84%e9%80%9a%e4%bf%a1%e5%8d%8f%e8%ae%ae
